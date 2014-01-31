@@ -1,0 +1,49 @@
+<head>
+  <title>BubblePopper</title>
+</head>
+
+<body>
+  {{>layout}}
+  {{>home}}
+
+</body>
+<template name ="grid">
+  
+  <div id="container">
+    {{#each buttons}}
+      <button class="button" type="button"></button>
+    {{/each}}
+  </div>
+ </template>
+
+  <template name="buttons">
+     {{#each buttons}}
+          <button class="button" type="button"></button>
+     {{/each}}
+ </template>
+
+
+  
+<template name = "home">
+  <h1> Welcome to bubblePopper</h1>
+  <p> Current Game Status:
+    {{#if game.active}}
+      Game in progress. <a href="#" id="finishGame">Finish Game</a><br><br><br><br>
+      <center>{{>grid}}</center>
+    {{else}}
+      {{#if game.finished}}
+        Game done or another player left.<a href="#" id="newGame">Start a new game</a>
+    {{else}}
+      Waiting for a new player to login. Find a <a href="#" id="newGame">new game</a>
+    {{/if}}
+  {{/if}}
+</p>
+<p><strong> Current Game ID: </strong>{{game._id}}</p>
+  <p><strong> Current Game Player Count: </strong>{{game.players.length}}</p>
+ 
+  <p><strong> Current Game Active: </strong>{{game.active}}</p>
+  
+  
+</template>
+
+
