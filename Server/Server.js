@@ -1,4 +1,4 @@
-if (Meteor.isServer) {
+
   
   Meteor.methods({
     newGame: function() {
@@ -56,6 +56,12 @@ if (Meteor.isServer) {
     }
   
   });
+
+
+  Meteor.publish('bubButtons', function(list){
+    return bubbles.find({grid : {$in: list}});
+  });
   
-}
+
+
 

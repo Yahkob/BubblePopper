@@ -24,9 +24,9 @@ if (Meteor.isClient) {
       list.push({value: i})
       
     }
-    currentGame.insert(list)
+    bubbles.insert({grid: list});
     console.log(list)
-    return list
+    return bubbles.find()
     }
 
   Template.grid.events({
