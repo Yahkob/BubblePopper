@@ -19,14 +19,23 @@
     console.log("user: " + userId + "just logged out.") 
   }
   
+      
+    
   allocateGame = function(userId) {
-    var gameWaiting = gameCollection.findOne({players: {$size: 1}});
+    var gameWaiting = gameCollection.findOne({players: {$size: 1}, current: true});
     
     if (!gameWaiting) {
+     
       console.log("creating a new game, none available");
-      gameCollection.update({players: userId}, {$set: {current: false}}, {multi: true});
-      gameCollection.insert({players: [userId], active: false, finished: false, current: true});
+      //gameCollection.update({players: userId}, {$set: {current: false}}, {multi: true});
+      var gameId = gameCollection.insert({players: [userId], active: false, finished: false, current:                         true});
+      
+      _.times(64, function(n){
+          bubbles.insert({gameId: gameId}); // This line inserts 64 NEW bubbles tied to THIS game.
+      });
     } else {
+    
+    // here?
       console.log("connecting with an existing waiting player");
       gameCollection.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
     }
@@ -58,7 +67,7 @@
   });
 
 
-  Meteor.publish('bubButtons', function(list){
+  Meteor.publish('Buttons', function(list){
     return bubbles.find({grid : {$in: list}});
   });
   
