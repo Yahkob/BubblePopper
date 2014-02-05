@@ -25,7 +25,7 @@ Deps.autorun(function(){
     if(!user){
         return;
     }
-    var game = gameCollection.findOne({players: {$in: [user._id]}, current: true});  // Players know what games they have.
+    var game = gameCollection.findOne({players: {$in: [user._id]}, current: true});  
     if(!game){
         return;
     }
@@ -37,7 +37,7 @@ Deps.autorun(function(){
   Template.grid.events({
     'click .button': function(ev) {
       $(ev.target).css('visibility', 'hidden');
-      console.log("som")
+      
    }
 });
 
