@@ -19,14 +19,18 @@ Template.home.events({
 Deps.autorun(function(){
   Meteor.subscribe("bubbles");
 });
+<<<<<<< HEAD
 
 
+=======
+  
+>>>>>>> 59dfd8bf8d4abd8b719f0e7dc125f1b6c3c79fb4
  Template.grid.buttons = function (){
     var user = Meteor.user();
     if(!user){
         return;
     }
-    var game = gameCollection.findOne({players: {$in: [user._id]}, current: true});  // Players know what games they have.
+    var game = gameCollection.findOne({players: {$in: [user._id]}, current: true});  
     if(!game){
         return;
     }
@@ -38,7 +42,7 @@ Deps.autorun(function(){
   Template.grid.events({
     'click .button': function(ev) {
       $(ev.target).css('visibility', 'hidden');
-      console.log("som")
+      
    }
 });
 
