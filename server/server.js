@@ -67,7 +67,7 @@
   });
 
 
-  Meteor.publish('Buttons', function(list){
+  Meteor.publish('bubbles', function(list){
     return bubbles.find({grid : {$in: list}});
   });
   
