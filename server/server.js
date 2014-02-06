@@ -25,11 +25,13 @@ allocateGame = function(userId) {
   if (!gameWaiting) {
     console.log("creating a new game, none available");
     var gameId = Games.insert({players: [userId], active: false, finished: false, current: true});
-
-    // Create 64 bubbles for this game
+    
+    
+    
+    
     _.times(64, function(n){
-      console.log("creating bubble grid")
       Bubbles.insert({gameId: gameId});
+
     });
 
   } else {
@@ -59,7 +61,7 @@ Meteor.publish('games', function(userId) {
 });
 
 
-Meteor.publish('bubbles', function(){
+Meteor.publish('Bubbles', function(){
   return Bubbles.find();
 });
 

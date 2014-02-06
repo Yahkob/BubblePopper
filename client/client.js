@@ -2,9 +2,7 @@ Deps.autorun(function(){
   Meteor.subscribe("games", Meteor.userId());
   Meteor.subscribe("Bubbles");
 });
-/////////////////////////////////////////
-// home Template
-/////////////////////////////////////////
+
 Template.home.helpers({
   game: function(){
     return Games.findOne({current: true});
@@ -21,9 +19,6 @@ Template.home.events({
     }
 });
 
-/////////////////////////////////////////
-// grid Template
-/////////////////////////////////////////
 Template.grid.helpers({
   buttons: function (){
     var user = Meteor.user();
