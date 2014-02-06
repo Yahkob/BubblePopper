@@ -28,9 +28,10 @@
       console.log("creating a new game, none available");
       //gameCollection.update({players: userId}, {$set: {current: false}}, {multi: true});
       var gameId = gameCollection.insert({players: [userId], active: false, finished: false, current:                         true});
-      
+      console.log("inserting players")
       _.times(64, function(n){
           bubbles.insert({gameId: gameId}); 
+          console.log("creating bubble grid")
       });
     } else {
       console.log("connecting with an existing waiting player");
