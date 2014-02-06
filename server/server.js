@@ -24,15 +24,12 @@ allocateGame = function(userId) {
 
   if (!gameWaiting) {
     console.log("creating a new game, none available");
+    //Added updated, required to start and finish games.
+    Games.update({players: userId}, {$set: {current: false}}, {multi: true});
     var gameId = Games.insert({players: [userId], active: false, finished: false, current: true});
-    
-    
-    
-    
-    _.times(64, function(n){
-      Bubbles.insert({gameId: gameId});
-
-    });
+      _.times(64, function(n){
+        Bubbles.insert({gameId: gameId});
+  });
 
   } else {
     console.log("connecting with an existing waiting player");
@@ -62,6 +59,7 @@ Meteor.publish('games', function(userId) {
 
 
 Meteor.publish('Bubbles', function(){
+  //Bubbles was bubbles
   return Bubbles.find();
 });
 
