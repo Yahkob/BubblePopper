@@ -1,4 +1,3 @@
-
   
   Meteor.methods({
     newGame: function() {
@@ -31,11 +30,9 @@
       var gameId = gameCollection.insert({players: [userId], active: false, finished: false, current:                         true});
       
       _.times(64, function(n){
-          bubbles.insert({gameId: gameId}); // This line inserts 64 NEW bubbles tied to THIS game.
+          bubbles.insert({gameId: gameId}); 
       });
     } else {
-    
-    // here?
       console.log("connecting with an existing waiting player");
       gameCollection.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
     }
