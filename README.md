@@ -1,5 +1,5 @@
 <h1>BubblePopper</h1>
-Testing the waters with my first meteor app. BubblePopper is a Meteor app that utilizes matchmaking. When two players enter a game a grid of bubbles will appear. The user must pop (click) as many bubbles as possible before the other user. Each time a bubble is popped it will update to the Bubbles collection making Bubbles reactive.  When all of the buttons are pressed the user with the highest score will win.
+Testing the waters with my first meteor app. BubblePopper is a Meteor app that utilizes matchmaking. When two players enter a game a grid of bubbles will appear. The user must pop (click) as many bubbles as possible before the other user. Each time a bubble is popped BubblePopper will add 1 to the users score and update to the Bubbles collection to hide the clicked Bubble making Bubbles reactive.  When all of the buttons are pressed the user with the highest score will win.
 
 
 
