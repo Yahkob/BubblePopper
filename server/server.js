@@ -1,10 +1,13 @@
-
 Meteor.methods({
   newGame: function() {
     allocateGame(this.userId);
   },
   finishGame: function(_id) {
     Games.update({_id: _id}, {$set: {active: false, finished: true}});
+  },
+  hideButton: function(_id){
+    console.log("method works")
+    Bubbles.update({_id: this._id}, {$set: {visibility: "hidden"}})
   }
 })
 
@@ -62,7 +65,3 @@ Meteor.publish('Bubbles', function(){
   //Bubbles was bubbles
   return Bubbles.find();
 });
-
-
-
-
