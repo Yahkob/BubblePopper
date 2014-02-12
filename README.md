@@ -29,9 +29,18 @@ bootstrap<br>
 accounts-password <br>
 accounts-ui-bootstrap-dropdown
 </ul>
+<<<<<<< HEAD
 <br>
+=======
+>>>>>>> aa0815063e5b686a081446d087ddbc05dc52de57
 
+<h2>Templates:</h2><ul>
+<li><h3>home.helpers:</h3></li>
+Initializes the game lobby. If there is no players prompts user to login.
+<li><h3>home.events:</h3></li>
+If there is one player asks user to wait or start a new game if multiple players have entered the lobby they have the option to join an existing game or start a new game depending if a user has started a game. Users that start a game can press finishGame at any time to cancel said game.
 
+<<<<<<< HEAD
 <h2>Templates:</h2><ul>
 <li><h3>home.helpers:</h3></li>
 Initializes the game lobby. If there is no players prompts user to login.
@@ -41,6 +50,11 @@ If there is one player asks user to wait or start a new game if multiple players
 <li><h3>grid.helpers:</h3></li>
 Returns the the grid of buttons (bubbles) if two users have started a game by checking first if there is users signed in and second by checking if they have started a game (if their current status is set to true).
 
+=======
+<li><h3>grid.helpers:</h3></li>
+Returns the the grid of buttons (bubbles) if two users have started a game by checking first if there is users signed in and second by checking if they have started a game (if their current status is set to true).
+
+>>>>>>> aa0815063e5b686a081446d087ddbc05dc52de57
 <li><h3>grid.events</h3></li>
 When a user clicks a button the program will call the method 'hideButton' this sets the visibility of the bubble to hidden using CSS. Using jQuery's .hide() method will create an undesirable user effect to the user interface, instead of hiding the button in place the buttons will all shift to different areas. Using CSS hides the button in place. grid.events also adds a point for each button pressed by the user to record their score.
 
@@ -55,7 +69,11 @@ When a user clicks a button the program will call the method 'hideButton' this s
 </ul>
 
 <h2>Todo/Bugs</h2>
+<<<<<<< HEAD
 <ul><h4>Same user play</h1>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.
+=======
+<ul><h4>Same user play</h4>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.
+>>>>>>> aa0815063e5b686a081446d087ddbc05dc52de57
 <h4>Fix 'hideButton'</h4>
 Currently 'hideButton' does not work. Need to target the current games array contained in the Bubbles collection and hide the target button with css.
 <h4>In game variables</h4>
