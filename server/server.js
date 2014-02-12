@@ -5,10 +5,11 @@ Meteor.methods({
   finishGame: function(_id) {
     Games.update({_id: _id}, {$set: {active: false, finished: true}});
   },
-  hideButton: function(_id){
+  hideButton: function(bubble){
     console.log("method works")
-    Bubbles.update({_id: this._id}, {$set: {visibility: "hidden"}})
+    Bubbles.update({_id: this._id}, {$set: {visibility: "hidden"}}) 
   }
+  
 })
 
 Meteor._onLogin  = function (userId) {

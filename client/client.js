@@ -34,10 +34,10 @@ Template.grid.helpers({
 });
 
 Template.grid.events({
-  'click .button': function(_id){
-    var bubbleClicked = Bubbles.find({_id: _id});
-    console.log("button clicked-grid events")
-    Meteor.call('hideButton', bubbleClicked._id)
+  'click .button': function (event) { 
+    var clickedElement = event.target
+    console.log(clickedElement)
+    Meteor.call('hideButton','clickedElement')
   }
 })
 
