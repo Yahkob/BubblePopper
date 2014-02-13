@@ -5,31 +5,21 @@
 <body>
   {{>layout}}
   {{>home}}
-  
-
 </body>
+
 <template name ="grid">
-  
   <div id="container">
-    {{#each buttons}}
-      <button class="button" type="button"></button>
-    {{/each}}
+  {{#each buttons}}
+  <button class="button {{visibility}}" type="button" button_id="{{_id}}" ></button>
+  {{/each}}
   </div>
- </template>
+</template>
 
-  <template name="buttons">
-     {{#each buttons}}
-          <button class="button" type="button"></button>
-     {{/each}}
- </template>
-
-
-  
 <template name = "home">
   <h1> Welcome to bubblePopper</h1>
   <p> Current Game Status:
-    {{#if game.active}}
-      Game in progress. <a href="#" id="finishGame">Finish Game</a><br><br><br><br>
+  {{#if game.active}}
+      <div class='game-in-progress'>Game in progress. <a href="#" id="finishGame">Finish Game</a></div>
       <center>{{>grid}}</center>
     {{else}}
       {{#if game.finished}}
@@ -40,9 +30,11 @@
   {{/if}}
 </p>
 <p><strong> Current Game ID: </strong>{{game._id}}</p>
-  <p><strong> Current Game Player Count: </strong>{{game.players.length}}</p>
- 
+  <p><strong> Current Game Player Count: </strong>{{game.players.length}}</p
+
   <p><strong> Current Game Active: </strong>{{game.active}}</p>
-  
-  
+  <div class="score"><label>Player 1</label>{{player1Score}}</div>
+  <div class="score"><label>Player 2</label>{{player2Score}}</div>
+
+
 </template>

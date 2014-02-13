@@ -6,6 +6,23 @@ Deps.autorun(function(){
 Template.home.helpers({
   game: function(){
     return Games.findOne({current: true});
+  },
+  player1Score: function(){
+    var game = Games.findOne({current: true});
+    console.log(game);
+    if(!game)
+      return;
+    var player = game.players[0];
+    console.log(player);
+    var bubbles = Bubbles.find({userId: player, gameId: game._id}).fetch();
+    return bubbles.length;
+  },
+  player2Score: function(){
+    var game = Games.findOne({current: true});
+    if(!game)
+      return;
+    var player = game.players[1];
+    return Bubbles.find({userId: player, gameId: game._id}).fetch().length;
   }
 });
 
@@ -21,6 +38,7 @@ Template.home.events({
 
 Template.grid.helpers({
   buttons: function (){
+    console.log('Inside the grid -> button helper');
     var user = Meteor.user();
     if(!user){
         return;
@@ -34,10 +52,10 @@ Template.grid.helpers({
 });
 
 Template.grid.events({
-  'click .button': function (event) { 
-    var clickedElement = event.target
-    console.log(clickedElement)
-    Meteor.call('hideButton','clickedElement')
+  'click .button': function (event, template) {
+    var clickedElement = $(event.target);
+    var _id = clickedElement.attr('button_id');
+    Meteor.call('hideButton', _id, Meteor.userId());
   }
 })
 

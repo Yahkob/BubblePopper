@@ -19,8 +19,14 @@
     outline: none;
 }
 #container > .button:hover {
-    opacity: 9;    
+    opacity: 9;
 }
 #container > .button.removed {
     background-image: none;
+}
+
+.game-in-progress {
+  margin-top: 40px;
+  padding: 0px;
+  border: none;
 }
