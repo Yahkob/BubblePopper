@@ -1,0 +1,5 @@
+Users can't play themselves
+Bubbles need an order
+Add ordering to the Bubble query
+Users need to have a better idea of what a "Game" is <- Developer detail :)
+Client security

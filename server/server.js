@@ -2,7 +2,7 @@ Meteor.methods({
   newGame: function() {
     allocateGame(this.userId);
   },
-  finishGame: function(_id) {
+  finishGame: function(_id){
     Games.update({_id: _id}, {$set: {active: false, finished: true}});
   },
   hideButton: function(bubble_id, userId){
@@ -30,7 +30,8 @@ allocateGame = function(userId) {
       Bubbles.insert({gameId: gameId});
     });
 
-  } else {
+  }
+  else {
     console.log("connecting with an existing waiting player");
     Games.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
   }
@@ -40,17 +41,17 @@ leaveGames = function(userId) {
   console.log("leaving all unfinished games");
   Games.remove({$and: [{players: userId, players: {$size: 1}}]});
   var games = Games.find({$and: [{players: userId, active: true}]});
-  games.forEach(function(game) {
+  games.forEach(function(game){
     Games.update({_id: game._id}, {$set: {active: false, finished: true}});
   })
 };
 
 Meteor.publish('games', function(userId) {
-  if(userId)
+  if(userId){
     return Games.find({players: this.userId});
+  }
 });
 
 Meteor.publish('Bubbles', function(){
-  //Bubbles was bubbles
   return Bubbles.find();
 });

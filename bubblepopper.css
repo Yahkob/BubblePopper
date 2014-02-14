@@ -25,8 +25,8 @@
     background-image: none;
 }
 
-.game-in-progress {
-  margin-top: 40px;
+.score {
+  margin-bottom: 45px;
   padding: 0px;
   border: none;
 }
