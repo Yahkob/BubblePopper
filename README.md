@@ -27,16 +27,29 @@ accounts-base<br>
 profile-online<br>
 bootstrap<br>
 accounts-password <br>
-accounts-ui-bootstrap-dropdown
+accounts-ui-bootstrap-dropdown<br>
+bootbox
 </ul>
 <br>
 
 
 <h2>Templates:</h2><ul>
 <li><h3>home.helpers:</h3></li>
-Initializes the game lobby. If there is no players prompts user to login.
+
+<li><h5>game</h5><li>
+Displays the matchmaking screen
+
+<li><h5>player1Score and player2Score</h5><li>
+Displays player specific scores
+
+<li><h5>endGame</h5><li>
+When all buttons are pressed the 'finishGame' method is called and the user is alerted who won.
+
 <li><h3>home.events:</h3></li>
 If there is one player asks user to wait or start a new game if multiple players have entered the lobby they have the option to join an existing game or start a new game depending if a user has started a game. Users that start a game can press finishGame at any time to cancel said game.
+
+<li><h3>home.events</h3><li>
+Starts new games, joins existing games and finishes games.
 
 <li><h3>grid.helpers:</h3></li>
 Returns the the grid of buttons (bubbles) if two users have started a game by checking first if there is users signed in and second by checking if they have started a game (if their current status is set to true).
