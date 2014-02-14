@@ -55,12 +55,5 @@ When a user clicks a button the program will call the method 'hideButton' this s
 </ul>
 
 <h2>Todo/Bugs</h2>
-<ul><h4>Same user play</h1>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.
-<h4>Fix 'hideButton'</h4>
-Currently 'hideButton' does not work. Need to target the current games array contained in the Bubbles collection and hide the target button with css.
-<h4>In game variables</h4>
-Need to integrate player score and total count of bubbles popped variables into game.
-<h4>Ending game</h4>
-Need to integrate 'finishGame' method into game when all bubbles are popped and totalCount equals 64.
-
+<ul><h4>Same user play</h4>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.
 
