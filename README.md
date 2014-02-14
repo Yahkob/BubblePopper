@@ -68,5 +68,8 @@ When a user clicks a button the program will call the method 'hideButton' this s
 </ul>
 
 <h2>Todo/Bugs</h2>
-<ul><h4>Same user play</h4>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.
+<ul><h4>Same user play</h4><li>When a user logins in they can then start a game with their self by clicking new game twice. This is an effect of the multiplayer system only requiring one player to be logged in. Possible solution could be to require the allocateGame function to verify the same user isn't trying to start a new game with themself.</li>
+<h4>Bubble Creation</h4>
+<li>Issue when bubbles are created it inserts 64 * 64 bubbles</li>
+
 
