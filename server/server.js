@@ -31,7 +31,7 @@ allocateGame = function(userId) {
     });
 
   }
-  else {
+  else{
     console.log("connecting with an existing waiting player");
     Games.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
   }

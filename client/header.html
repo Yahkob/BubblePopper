@@ -1,0 +1,22 @@
+<template name="header"> <header class="navbar navbar-inverse">
+<div class="navbar-inner">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-coll
+apse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span> </a>
+<a class="brand">Bubble Popper</a> <div class="nav-collapse collapse">
+<ul class="nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">How to play
+<b class="caret"></b></a>
+<ul class="dropdown-menu" style="width: 500px; background-color: black; background: rgba(0, 0, 0, 0.8);"><p class="dropdown-content">
+Bubble Popper is a real time two player game with real players.The object of the game is to "pop" more bubbles than your opponent. When all bubbles are popped the player with the highest score will be crowned the victor!</p></ul>
+</li>
+</ul>
+
+<ul class="nav pull-right">
+  <li><a href="#" onClick="MyWindow=window.open('http://github.com/yahkob','MyWindow',width=600,height=300); return false;"><img src="http://i.imgur.com/NvFf3aY.png"></a></li>
+<li>{{loginButtons}}</li> </ul>
+</div> </div>
+</header> </template>
