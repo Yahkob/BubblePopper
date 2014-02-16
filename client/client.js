@@ -35,13 +35,13 @@ Template.home.helpers({
     var totalPressed = player1 + player2;
     var winner;
     if(player1 > player2){
-      winner = "Player 1 Wins!!!";
+      winner = "Player 1 Wins!";
     }
     else if(player2 > player1){
-      winner = "Player 2 Wins!!!";
+      winner = "Player 2 Wins!";
     }
     else{
-      winner = "Tie Game!!!!";
+      winner = "Tie Game!!";
     }
     if(totalPressed !== 64){
       return;
