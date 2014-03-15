@@ -30,15 +30,13 @@ allocateGame = function(userId) {
     Bubbles.insert({gameId: gameId});
     });
   }
-  else {
-    if (_.contains(gameWaiting.players, userId)){
-      console.log("No other users are currently in the lobby please wait.");
-    }
-    else{
-      console.log("connecting with an existing waiting player");
-      Games.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
-    }
+  else if (_.contains(gameWaiting.players, userId)){
+    console.log("No other users are currently in the lobby please wait.");
   }
+  else{
+    console.log("connecting with an existing waiting player");
+    Games.update({_id: gameWaiting._id}, {$set: {active: true}, $push: {players: userId}});
+    }
 };
 
 leaveGames = function(userId) {
