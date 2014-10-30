@@ -76,12 +76,12 @@ Template.grid.helpers({
 });
 
 Template.grid.events({
-  'click .button': function (event, template) {
+  'click .button': _.throttle( function (event, template) {
     console.log("Pop!")
     var clickedElement = $(event.target);
     var _id = clickedElement.attr('button_id');
     Meteor.call('hideButton', _id, Meteor.userId());
-  }
+  }, 75)
 });
 
 
