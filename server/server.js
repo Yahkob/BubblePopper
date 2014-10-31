@@ -12,13 +12,13 @@ Meteor.methods({
 
 Meteor._onLogin  = function (userId) {
   allocateGame(userId);
-  console.log("user: " + userId + "just logged in.")
-}
+  console.log("user: " + userId + "just logged in.");
+};
 
 Meteor._onLogout = function (userId) {
   leaveGames(userId);
-  console.log("user: " + userId + "just logged out.")
-}
+  console.log("user: " + userId + "just logged out.");
+};
 
 allocateGame = function(userId) {
   var gameWaiting = Games.findOne({players: {$size: 1}, current: true});
@@ -41,11 +41,15 @@ allocateGame = function(userId) {
 
 leaveGames = function(userId) {
   console.log("leaving all unfinished games");
-  Games.remove({$and: [{players: userId, players: {$size: 1}}]});
+  Games.remove({
+    $and: [
+      {players: userId, players: {$size: 1}}
+    ]
+  });
   var games = Games.find({$and: [{players: userId, active: true}]});
   games.forEach(function(game){
     Games.update({_id: game._id}, {$set: {active: false, finished: true}});
-  })
+  });
 };
 
 Meteor.publish('games', function(userId) {

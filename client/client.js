@@ -47,13 +47,13 @@ Template.home.helpers({
       return;
     }
     bootbox.alert(winner);
-    Meteor.call('finishGame', game._id)
+    Meteor.call('finishGame', game._id);
   }
 });
 
 Template.home.events({
   "click #newGame" : function() {
-    Meteor.call('newGame')
+    Meteor.call('newGame');
   },
   "click #finishGame": function(){
     var game = Games.findOne({current: true});
@@ -76,12 +76,11 @@ Template.grid.helpers({
 });
 
 Template.grid.events({
-  'click .button': _.throttle( function (event, template) {
-    console.log("Pop!")
+  'click .button':  function (event, template) {
     var clickedElement = $(event.target);
     var _id = clickedElement.attr('button_id');
     Meteor.call('hideButton', _id, Meteor.userId());
-  }, 75)
+  }
 });
 
 
